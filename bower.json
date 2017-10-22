@@ -1,0 +1,21 @@
+{
+  "name": "music_server",
+  "version": "0.1.0",
+  "authors": [
+    "Anton Dershen"
+  ],
+  "description": "Music Server.",
+  "moduleType": [
+    "es6"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+     "bootstrap": "v4.0.0-alpha.6"
+  }
+}
