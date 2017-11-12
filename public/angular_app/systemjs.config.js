@@ -22,7 +22,6 @@
         'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
         'ng2-translate': 'npm:ng2-translate/bundles/index.js'
       },
-      // пакеты, которые указывают загрузчику System, как загружать файлы без имени и расширения
       packages: {
         app: {
           main: './main.js',

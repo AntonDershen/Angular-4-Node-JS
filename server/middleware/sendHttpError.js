@@ -1,10 +1,8 @@
-module.exports = function(request, response, next)
+module.exports = function(err, request, response, next)
 {
-    response.sendHttpError = function(error)
-    {
-        response.status = error.status;
-        response.render("error", { error : error });
+    if (response.headersSent) {
+        return next(err);
     }
-    
-    next();
+    response.status = err.status;
+    response.send({ "error" : err });
 }

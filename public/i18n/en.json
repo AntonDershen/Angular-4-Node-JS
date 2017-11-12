@@ -3,6 +3,11 @@
     "Description" : "Description",
     "LearnMore" : "Learn more",
     "SignIn" : "Sign In",
-    "Register" : "Register",
+    "SignUp" : "Sign Up",
+    "SignOut": "Sign Out",
+    "UserName" : "User Name",
+    "Password" : "Password",
+    "ConfirmPassword" : "Confirm Password",
+    "Email" : "Email",
     "Error" : "Error"
 }

@@ -26,7 +26,7 @@ schema.methods.encryptPassword = function(password){
 schema.virtual('password')
     .set(function(password){
         this._plainPassword = password;
-        this.salt = Math.random + '';
+        this.salt = random() + '';
         this.hashedPassword = this.encryptPassword(password);
     })
     .get(function(){ return this._plainPassword; });
@@ -35,6 +35,32 @@ schema.methods.checkPassword = function(password){
     return this.encryptPassword(password) === this.hashedPassword;
 }
 
-module.exports = mongoose.model('User', schema);
+function random(){
+    var date = new Date();
+    var current_milliseconds = date.getMilliseconds();
+    var current_seconds = date.getSeconds();
+    var high = 0;
+    var low = 0;
 
+    if (current_milliseconds > current_seconds)
+    {
+        high = current_milliseconds;
+        low = current_seconds;
+    }
 
+    if (current_milliseconds > current_seconds)
+    {
+        high = current_seconds;
+        low = current_milliseconds;
+    }
+
+    if (current_milliseconds == current_seconds)
+    {
+        return random();
+    }
+
+    return Math.random() * (high - low) + low;
+}
+
+module.exports.User = mongoose.model('User', schema);
+module.exports.Mongoose = mongoose;
