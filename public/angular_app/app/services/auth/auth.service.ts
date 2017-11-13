@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions, RequestOptionsArgs } from '@angular/http';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
- 
+import 'rxjs/add/operator/catch'
+
 @Injectable()
 export class AuthenticationService {
     public token: string;
  
-    constructor(private http: Http) {
+    constructor(
+                private http: Http,
+                private router: Router 
+               ) {
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
     }
@@ -18,6 +23,9 @@ export class AuthenticationService {
                             var json = res.json();
                             return json["result"];
                         })
+                        .catch((error: any)=> {  
+                            return Observable.throw(error);
+                        });
     }
 
     authenticate(username: string, password: string): Observable<boolean> {
@@ -31,7 +39,10 @@ export class AuthenticationService {
                 } else {
                     return false;
                 }
-            });
+            })
+            .catch((error: any)=> {  
+                return Observable.throw(error);
+            });;
     }
  
     signOut(): void {

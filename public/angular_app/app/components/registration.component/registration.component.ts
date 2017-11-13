@@ -48,21 +48,25 @@ export class RegistrationComponent {
         }, this.validatePasswordConfirmation);
     }
     isUserNameExists(control: FormControl) {
-        var q = new Promise<any>((resolve, reject) => {
+        var result = new Promise<any>((resolve, reject) => {
             setTimeout(() => {
                 var response = this.userService.isUserExists(control.value);
-                response.subscribe(res => {
-                    console.log(res);
-                    if(res) {
-                        resolve({'userNameTaken': true});
-                    } 
-                    else {
-                        resolve(null);
-                    }
-                });
+                response.
+                subscribe(
+                    res => {
+                        console.log(res);
+                        if(res) {
+                            resolve({'userNameTaken': true});
+                        } 
+                        else {
+                            resolve(null);
+                        }
+                    },
+                        err => {resolve(null);}
+                    );
             }, 1000);
           });
-          return q;
+          return result;
     }
     validatePasswordConfirmation(group: FormGroup): {[s:string]:boolean} {
         var password = group.controls['password'];
@@ -76,11 +80,15 @@ export class RegistrationComponent {
    submit() {
         var user = this.registrationForm.controls['userName'];
         var password = this.registrationForm.controls['password'];
-        var response = this.authService.registration(user.value, password.value).subscribe(res=>{
-            if(res){
-                this.router.navigate(['']);
-            }
-        });
+        var response = this.authService.registration(user.value, password.value)
+            .subscribe(
+                data =>{
+                    if(data ){
+                        this.router.navigate(['']);
+                    }
+                },
+                err => {this.router.navigate(['Error']);}
+            );
     }
 }
 

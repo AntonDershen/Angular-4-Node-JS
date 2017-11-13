@@ -36,11 +36,15 @@ export class AuthComponent {
         console.log("submit");
         var user = this.authForm.controls['userName'];
         var password = this.authForm.controls['password'];
-        var response = this.authService.authenticate(user.value, password.value).subscribe(res=>{
-            if(res){
-                this.router.navigate(['']);
-            }
-        });
+        var response = this.authService.authenticate(user.value, password.value)
+            .subscribe(
+                data =>{
+                    if(data ){
+                        this.router.navigate(['']);
+                    }
+                },
+                err => {this.router.navigate(['Error']);}
+            );
     }
 }
 

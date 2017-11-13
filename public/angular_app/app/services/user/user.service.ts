@@ -3,7 +3,6 @@ import { Http, Headers, Response, RequestOptions, RequestOptionsArgs } from '@an
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
-import 'rxjs/add/observable/of'
 
 @Injectable()
 export class UserService {
@@ -17,6 +16,9 @@ export class UserService {
                             var json = res.json();
                             return json["result"];
                         })
+                        .catch((error: any)=> {  
+                            return Observable.throw(error);
+                        });
     }
     
     private getHeaders()

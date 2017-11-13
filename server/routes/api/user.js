@@ -48,12 +48,12 @@ module.exports = function(app)
         userSchema.findOne({userName : request.body.username} ,function(err, user){
             if(err) return next(err);
             if(!user){
-                response.json({ success: false, message: 'Authentication failed. User not found.' });
+                response.json({ success: false });
             }
             else if(user)
             {
                 if (!user.checkPassword(request.body.password)) {
-                    response.json({ success: false, message: 'Authentication failed. Wrong password.' });
+                    response.json({ success: false });
                 }
                 else{
                     var payload = {
