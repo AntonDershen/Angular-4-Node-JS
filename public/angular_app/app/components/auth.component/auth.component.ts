@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from './../../services/auth/auth.service';
 import { Router } from '@angular/router';
+import { MessageService } from './../../services/message/message.service';
+import { TranslateService } from 'ng2-translate';
 
 @Component({
     selector: 'auth',
@@ -14,7 +16,9 @@ export class AuthComponent {
     constructor(
             private fb: FormBuilder,
             private authService: AuthenticationService,
-            private router: Router
+            private router: Router,
+            private messageService: MessageService,
+            private translateService: TranslateService
         ) {
     }
     ngOnInit() {
@@ -41,6 +45,13 @@ export class AuthComponent {
                 data =>{
                     if(data ){
                         this.router.navigate(['']);
+                    }
+                    else{
+                        this.translateService.get("AuthError").subscribe(
+                            data => {
+                                this.messageService.error(data);
+                            }
+                        );
                     }
                 },
                 err => {this.router.navigate(['Error']);}

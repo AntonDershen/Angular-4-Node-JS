@@ -13,6 +13,7 @@
     "UserNameRequire" : "User Name can't be blank",
     "PasswordRequire" : "Password can't be blank and is too short (minimum is 6 characters)",
     "UserNameTaken" : "User Name is already taken",
-    "PasswordMatch" : "Passwords must match"
+    "PasswordMatch" : "Passwords must match",
+    "AuthError" : "Invaild User Name or Password"
 
 }

@@ -9,7 +9,5 @@ export class AppComponent {
     constructor(private languageService: LanguageService) {
         
     }
-
-    
 }
 

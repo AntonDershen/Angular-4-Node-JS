@@ -8,12 +8,14 @@ import { AuthGuard} from './../../guards/auth/auth.guards'
 import { UserService } from './../../services/user/user.service';
 import { AuthenticationService } from './../../services/auth/auth.service';
 import { LanguageService } from './../../services/language/language.service';
+import { MessageService } from './../../services/message/message.service';
 
 import { AppComponent }   from './../../components/app.component/app.component';
 import { HomeComponent }  from './../../components/home.component/home.component'
 import { AuthComponent }  from './../../components/auth.component/auth.component';
 import { RegistrationComponent } from './../../components/registration.component/registration.component';
 import { ErrorComponent } from './../../components/error.component/error.component';
+import { MessageComponent } from './../../components/message.component/message.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -34,8 +36,8 @@ const appRoutes: Routes = [
                         deps: [Http]
                     })
                   ],
-    declarations: [ AppComponent, HomeComponent, AuthComponent, ErrorComponent, RegistrationComponent ],
+    declarations: [ AppComponent, HomeComponent, AuthComponent, ErrorComponent, RegistrationComponent, MessageComponent ],
     bootstrap:    [ AppComponent ],
-    providers:    [ AuthGuard, UserService, AuthenticationService, LanguageService ]
+    providers:    [ AuthGuard, UserService, AuthenticationService, LanguageService, MessageService ]
 })
 export class AppModule { }
