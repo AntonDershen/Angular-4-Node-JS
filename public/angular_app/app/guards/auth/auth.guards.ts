@@ -9,9 +9,7 @@ export class AuthGuard implements CanActivate {
     canActivate() {
         return this.IsAuthorize();
     }
-
-    IsAuthorize()
-    {
+ IsAuthorize() {
         if (localStorage.getItem('currentUser')) {
             return true;
         }

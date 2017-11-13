@@ -2,7 +2,7 @@ var util = require('util');
 var path = require('path');
 var http = require('http');
 
-function HttpError(status, message){
+function httpError(status, message){
     Error.apply(this, arguments);
     Error.captureStackTrace(this);
 
@@ -10,7 +10,7 @@ function HttpError(status, message){
     this.message = message;
 }
 
-util.inherits(HttpError, Error);
-HttpError.prototype.name = 'HttpError';
+util.inherits(httpError, Error);
+httpError.prototype.name = 'httpError';
 
-module.exports = HttpError;
+module.exports = httpError;

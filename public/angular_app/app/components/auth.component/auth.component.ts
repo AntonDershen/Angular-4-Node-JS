@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import {TranslateService} from 'ng2-translate';
-import {Http} from '@angular/http';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { TranslateService } from 'ng2-translate';
 import { AuthenticationService } from './../../services/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -22,13 +21,10 @@ export class AuthComponent {
         translate.setDefaultLang('en');
         translate.use('en');
     }
-
     ngOnInit() {
         this.createFormGroup();
     }
-
-    createFormGroup()
-    {
+    createFormGroup() {
         this.authForm = this.fb.group({
             userName: this.fb.control('',  [
                 Validators.required
@@ -40,8 +36,7 @@ export class AuthComponent {
             ])
          });
     }
-
-    submit(){
+    submit() {
         console.log("submit");
         var user = this.authForm.controls['userName'];
         var password = this.authForm.controls['password'];

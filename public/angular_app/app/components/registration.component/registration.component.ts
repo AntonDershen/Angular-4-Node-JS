@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from 'ng2-translate';
 import { UserService } from './../../services/user/user.service';
 import { AuthenticationService } from './../../services/auth/auth.service';
@@ -24,12 +24,10 @@ export class RegistrationComponent {
         translate.setDefaultLang('en');
         translate.use('en');
     }
-
     ngOnInit() {
         this.createFormControls();
         this.createFormGroup();
     }
-
     createFormControls() { 
         this.userName = new FormControl('',  [
             Validators.required 
@@ -46,17 +44,14 @@ export class RegistrationComponent {
             Validators.minLength(6)
         ]);
     }
-
-    createFormGroup()
-    {
+    createFormGroup() {
         this.registrationForm = new FormGroup({
             userName: this.userName,
             password: this.password,
             confirmPassword: this.cofirmPassword
         }, this.validatePasswordConfirmation);
     }
-
-    isUserNameExists(control: FormControl){
+    isUserNameExists(control: FormControl) {
         var q = new Promise<any>((resolve, reject) => {
             setTimeout(() => {
                 var response = this.userService.isUserExists(control.value);
@@ -73,7 +68,6 @@ export class RegistrationComponent {
           });
           return q;
     }
-
     validatePasswordConfirmation(group: FormGroup): {[s:string]:boolean} {
         var password = group.controls['password'];
         var confirmPassword = group.controls['confirmPassword'];
@@ -83,8 +77,7 @@ export class RegistrationComponent {
         }
         return null; 
     }
-
-    submit(){
+   submit() {
         var user = this.registrationForm.controls['userName'];
         var password = this.registrationForm.controls['password'];
         var response = this.authService.registration(user.value, password.value).subscribe(res=>{

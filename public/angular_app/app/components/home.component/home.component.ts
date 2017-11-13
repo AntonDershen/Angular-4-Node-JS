@@ -1,5 +1,5 @@
-import { Component, animate, state, style, transition, trigger } from '@angular/core';
-import {TranslateService} from 'ng2-translate';
+import { Component } from '@angular/core';
+import { TranslateService } from 'ng2-translate';
 import { AuthenticationService } from './../../services/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -18,8 +18,7 @@ export class HomeComponent {
         translate.use('en');
     }
 
-    submit()
-    {
+    submit() {
         this.authService.signOut();
         this.router.navigate(['/Auth']);
     }

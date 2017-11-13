@@ -20,12 +20,13 @@ app.all("/*", function(req, res, next){
     next();
 });
 
-var routes = require('./routes/api')(app);
+require('./routes/index')(app);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './../views/index.html'));
 });
 
 app.listen(config.get('port'));
+console.log("Server listen port: " + config.get('port'));
 
 module.exports = app;
