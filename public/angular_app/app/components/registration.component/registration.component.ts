@@ -1,6 +1,5 @@
 import { Component} from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { TranslateService } from 'ng2-translate';
 import { UserService } from './../../services/user/user.service';
 import { AuthenticationService } from './../../services/auth/auth.service';
 import { Observable } from "rxjs/Observable";
@@ -17,12 +16,9 @@ export class RegistrationComponent {
     cofirmPassword: FormControl;
 
     constructor(
-            translate: TranslateService, 
             private userService: UserService, 
             private authService: AuthenticationService,
             private router: Router) {
-        translate.setDefaultLang('en');
-        translate.use('en');
     }
     ngOnInit() {
         this.createFormControls();

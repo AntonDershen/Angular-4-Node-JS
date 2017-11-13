@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { TranslateService } from 'ng2-translate';
 import { AuthenticationService } from './../../services/auth/auth.service';
 import { Router } from '@angular/router';
 
@@ -13,13 +12,10 @@ export class AuthComponent {
     authForm: FormGroup;
 
     constructor(
-            translate: TranslateService, 
             private fb: FormBuilder,
             private authService: AuthenticationService,
             private router: Router
         ) {
-        translate.setDefaultLang('en');
-        translate.use('en');
     }
     ngOnInit() {
         this.createFormGroup();

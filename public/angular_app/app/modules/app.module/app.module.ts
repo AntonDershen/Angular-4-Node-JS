@@ -7,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard} from './../../guards/auth/auth.guards'
 import { UserService } from './../../services/user/user.service';
 import { AuthenticationService } from './../../services/auth/auth.service';
+import { LanguageService } from './../../services/language/language.service';
 
 import { AppComponent }   from './../../components/app.component/app.component';
 import { HomeComponent }  from './../../components/home.component/home.component'
@@ -35,6 +36,6 @@ const appRoutes: Routes = [
                   ],
     declarations: [ AppComponent, HomeComponent, AuthComponent, ErrorComponent, RegistrationComponent ],
     bootstrap:    [ AppComponent ],
-    providers:    [ AuthGuard, UserService, AuthenticationService ]
+    providers:    [ AuthGuard, UserService, AuthenticationService, LanguageService ]
 })
 export class AppModule { }
