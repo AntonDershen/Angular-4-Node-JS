@@ -5,10 +5,20 @@
             <label><strong>{{'UserName' | translate}}</strong></label>
             <input class="form-control" name="userName" formControlName="userName"/>
         </div>
+        
+        <div class="alert alert-danger"
+            *ngIf="authForm.controls['userName'].invalid && authForm.controls['userName'].touched">
+            <label><strong>{{'UserNameRequire' | translate}}</strong></label>
+        </div>
 
         <div class="form-group">
             <label><strong>{{'Password' | translate}}</strong></label>
             <input class="form-control" name="password" formControlName="password"/>
+        </div>
+
+        <div class="alert alert-danger"
+            *ngIf="authForm.controls['password'].invalid && authForm.controls['password'].touched">
+            <label><strong>{{'PasswordRequire' | translate}}</strong></label>
         </div>
 
         <div class="form-group">

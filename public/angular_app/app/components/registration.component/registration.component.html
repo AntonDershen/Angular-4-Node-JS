@@ -6,14 +6,34 @@
             <input class="form-control" name="userName" formControlName="userName"/>
         </div>
 
+        <div class="alert alert-danger"
+            *ngIf="registrationForm.controls['userName'].invalid && registrationForm.controls['userName'].touched && !registrationForm.controls['userName'].errors.userNameTaken">
+            <label><strong>{{'UserNameRequire' | translate}}</strong></label>
+        </div>
+
+        <div class="alert alert-danger"
+            *ngIf="registrationForm.controls['userName'].errors && registrationForm.controls['userName'].errors.userNameTaken">
+            <label><strong>{{'UserNameTaken' | translate}}</strong></label>
+        </div>
+
         <div class="form-group">
             <label><strong>{{'Password' | translate}}</strong></label>
             <input type="password" class="form-control" name="password" formControlName="password"/>
         </div>
 
+        <div class="alert alert-danger"
+            *ngIf="registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched">
+            <label><strong>{{'PasswordRequire' | translate}}</strong></label>
+        </div>
+
         <div class="form-group">
             <label><strong>{{'ConfirmPassword' | translate}}</strong></label>
             <input type="password" class="form-control" name="confirmPassword" formControlName="confirmPassword"/>
+        </div>
+
+        <div class="alert alert-danger"
+            *ngIf="registrationForm.controls['confirmPassword'].invalid && registrationForm.controls['confirmPassword'].touched">
+            <label><strong>{{'PasswordMatch' | translate}}</strong></label>
         </div>
 
         <div class="form-group">

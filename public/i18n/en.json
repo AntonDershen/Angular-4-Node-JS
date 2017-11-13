@@ -9,5 +9,10 @@
     "Password" : "Password",
     "ConfirmPassword" : "Confirm Password",
     "Email" : "Email",
-    "Error" : "Error"
+    "Error" : "Error",
+    "UserNameRequire" : "User Name can't be blank",
+    "PasswordRequire" : "Password can't be blank and is too short (minimum is 6 characters)",
+    "UserNameTaken" : "User Name is already taken",
+    "PasswordMatch" : "Passwords must match"
+
 }
