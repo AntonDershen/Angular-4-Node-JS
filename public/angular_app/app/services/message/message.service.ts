@@ -9,7 +9,6 @@ export class MessageService {
     private messages = new Subject<Message>();
 
     constructor(private router: Router) {
-        // clear alert messages on route change unless 'keepAfterRouteChange' flag is true
         router.events.subscribe(event => {
             if (event instanceof NavigationStart) {
                 this.clearMessage();

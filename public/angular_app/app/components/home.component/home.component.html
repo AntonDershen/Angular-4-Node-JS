@@ -1,9 +1,18 @@
-<h1 class="cover-heading">{{'AppName' | translate}}</h1>
-<p class="lead">{{'Description' | translate}}</p>
-<p class="lead">
-    <a href="#" class="btn btn-lg btn-secondary">{{'LearnMore' | translate}}</a>
-</p>
+<div class="game-container">
+        <div class="grid-container">
+                <ng-container *ngFor="let item of list" >
+                    <div class="grid-cell">
+                        <div *ngIf="item > 0" class="tile tile-{{item}}">   
+                            <div class="tile-inner">     
+                                    {{item}}   
+                            </div> 
+                        </div>
+                    </div>
+                </ng-container>
 
-<button class="btn btn-lg btn-danger" (click)="submit()">
-    <strong>{{'SignOut' | translate}}</strong>
+        <div class="grid-container">
+</div>
+
+<button class="btn btn-lg btn-danger" style="margin-top: 50px;" (click)="submit()">
+    {{'SignOut' | translate}}
 </button>

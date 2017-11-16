@@ -1,5 +1,5 @@
 import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { Http } from '@angular/http';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
@@ -38,6 +38,6 @@ const appRoutes: Routes = [
                   ],
     declarations: [ AppComponent, HomeComponent, AuthComponent, ErrorComponent, RegistrationComponent, MessageComponent ],
     bootstrap:    [ AppComponent ],
-    providers:    [ AuthGuard, UserService, AuthenticationService, LanguageService, MessageService ]
+    providers:    [ AuthGuard, UserService, AuthenticationService, LanguageService, MessageService, Title ]
 })
 export class AppModule { }
