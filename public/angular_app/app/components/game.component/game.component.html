@@ -1,0 +1,28 @@
+
+<h1 *ngIf="gameLogicService.gameResultService.isWin">
+    Победа!
+</h1>
+<h1 *ngIf="gameLogicService.gameResultService.isLose">
+    Проигрыш!
+</h1>
+
+<div class="game-intro">
+    <h3>Game Score: {{gameLogicService.gameScoreService.gameScore}}</h3>
+    <button class="btn btn-lg std-button" style="margin-top:15px" (click)="restart()">
+        Новая игра
+    </button>
+</div>
+
+<div class="game-container">
+    <div class="grid-container">
+            <ng-container *ngFor="let item of gameLogicService.list" >
+                <div class="grid-cell">
+                    <div *ngIf="item > 0" class="tile tile-{{item}}">   
+                        <div class="tile-inner">     
+                                {{item}}   
+                        </div> 
+                    </div>
+                </div>
+            </ng-container>
+    </div>
+</div>

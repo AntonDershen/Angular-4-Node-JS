@@ -16,6 +16,7 @@ import { AuthComponent }  from './../../components/auth.component/auth.component
 import { RegistrationComponent } from './../../components/registration.component/registration.component';
 import { ErrorComponent } from './../../components/error.component/error.component';
 import { MessageComponent } from './../../components/message.component/message.component';
+import { GameComponent } from './../../components/game.component/game.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard]},
@@ -36,7 +37,7 @@ const appRoutes: Routes = [
                         deps: [Http]
                     })
                   ],
-    declarations: [ AppComponent, HomeComponent, AuthComponent, ErrorComponent, RegistrationComponent, MessageComponent ],
+    declarations: [ AppComponent, HomeComponent, AuthComponent, ErrorComponent, RegistrationComponent, MessageComponent, GameComponent ],
     bootstrap:    [ AppComponent ],
     providers:    [ AuthGuard, UserService, AuthenticationService, LanguageService, MessageService, Title ]
 })

@@ -1,18 +1,6 @@
-<div class="game-container">
-        <div class="grid-container">
-                <ng-container *ngFor="let item of list" >
-                    <div class="grid-cell">
-                        <div *ngIf="item > 0" class="tile tile-{{item}}">   
-                            <div class="tile-inner">     
-                                    {{item}}   
-                            </div> 
-                        </div>
-                    </div>
-                </ng-container>
 
-        <div class="grid-container">
-</div>
+<game></game>
 
-<button class="btn btn-lg btn-danger" style="margin-top: 50px;" (click)="submit()">
+<button class="btn btn-lg std-button" (click)="submit()">
     {{'SignOut' | translate}}
 </button>
