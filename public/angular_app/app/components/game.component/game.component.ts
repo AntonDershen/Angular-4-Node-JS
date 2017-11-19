@@ -23,29 +23,27 @@ export class GameComponent {
     keyboardInput(event: KeyboardEvent) {
         switch(event.code) { 
             case "ArrowUp": { 
-                this.gameLogicService.upShift();
-                this.gameLogicService.upSum();
-                this.gameLogicService.initRandomValue();
+                this.gameLogicService.gameShiftService.upShift(this.gameLogicService.list);
+                this.gameLogicService.gameSumService.upSum(this.gameLogicService.list);
                 break;
             } 
             case "ArrowRight": { 
-                this.gameLogicService.rightShift();
-                this.gameLogicService.rightSum();
-                this.gameLogicService.initRandomValue();
+                this.gameLogicService.gameShiftService.rightShift(this.gameLogicService.list);
+                this.gameLogicService.gameSumService.rightSum(this.gameLogicService.list);
                 break; 
             } 
             case "ArrowLeft": { 
-                this.gameLogicService.leftShift();
-                this.gameLogicService.leftSum();
-                this.gameLogicService.initRandomValue();
+                this.gameLogicService.gameShiftService.leftShift(this.gameLogicService.list);
+                this.gameLogicService.gameSumService.leftSum(this.gameLogicService.list);
                 break; 
             } 
             case "ArrowDown": { 
-                this.gameLogicService.downShift();
-                this.gameLogicService.downSum();
-                this.gameLogicService.initRandomValue();
+                this.gameLogicService.gameShiftService.downShift(this.gameLogicService.list);
+                this.gameLogicService.gameSumService.downSum(this.gameLogicService.list);
                 break; 
             } 
         } 
+        this.gameLogicService.initRandomValue();
+        this.gameLogicService.gameResultService.setGameResult(this.gameLogicService.list);
     }
 }
